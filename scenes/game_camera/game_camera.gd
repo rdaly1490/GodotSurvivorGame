@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	acquire_target()
 	# smooths camera while following the player, using delta to be indifferent to framerate
 	# camera kind of lags the player a little bit and when the player stops it catches up
-	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * 10))
+	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * 20))
 	
 		
 func acquire_target():
