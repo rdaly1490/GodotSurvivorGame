@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bf76remcjawce"]
 
-[ext_resource type="Texture2D" uid="uid://ckhsjxfyiq4fr" path="res://ability/sword_ability/sword.png" id="1_02mnn"]
+[ext_resource type="Texture2D" uid="uid://ckhsjxfyiq4fr" path="res://scenes/ability/sword_ability/sword.png" id="1_02mnn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jrb3k"]
 size = Vector2(30, 30)
