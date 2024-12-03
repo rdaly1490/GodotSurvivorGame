@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://csqu4fbo448kp"]
+[gd_scene load_steps=9 format=3 uid="uid://csqu4fbo448kp"]
 
 [ext_resource type="Script" path="res://scenes/game_object/basic_enemy/basic_enemy.gd" id="1_34waa"]
 [ext_resource type="Texture2D" uid="uid://3flj470d6qs" path="res://scenes/game_object/basic_enemy/basic_enemy.png" id="1_qb3qu"]
 [ext_resource type="PackedScene" uid="uid://dt26qx72lb4h8" path="res://scenes/component/health_component.tscn" id="2_emcyw"]
 [ext_resource type="PackedScene" uid="uid://blhy2ru6bivng" path="res://scenes/component/vial_drop_component.tscn" id="3_orxld"]
 [ext_resource type="PackedScene" uid="uid://b2jujanaganfh" path="res://scenes/game_object/experience_vial/experience_vial.tscn" id="4_lic5t"]
+[ext_resource type="PackedScene" uid="uid://bqn5vy7n85vwi" path="res://scenes/component/hurtbox_component.tscn" id="5_1flqn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vu27t"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ofgh"]
 radius = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lk2r0"]
@@ -21,16 +22,16 @@ script = ExtResource("1_34waa")
 [node name="HealthComponent" parent="." instance=ExtResource("2_emcyw")]
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_orxld")]
+drop_percent = 1.0
 vial_scene = ExtResource("4_lic5t")
 health_component = NodePath("../HealthComponent")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_1flqn")]
+health_component = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_vu27t")
+shape = SubResource("CircleShape2D_4ofgh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qb3qu")
